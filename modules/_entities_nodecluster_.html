@@ -1,0 +1,160 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;Entities/NodeCluster&quot; | sensorapi</title>
+	<meta name="description" content="Documentation for sensorapi">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">sensorapi</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_entities_nodecluster_.html">&quot;Entities/NodeCluster&quot;</a>
+				</li>
+			</ul>
+			<h1>Module &quot;Entities/NodeCluster&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_entities_nodecluster_.html#nodecluster" class="tsd-kind-icon">Node<wbr>Cluster</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_entities_nodecluster_.html#nodeclusterschema" class="tsd-kind-icon">Node<wbr>Cluster<wbr>Schema</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
+					<a name="nodecluster" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Node<wbr>Cluster</h3>
+					<div class="tsd-signature tsd-kind-icon">Node<wbr>Cluster<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Model</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Document</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>findAccessible<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = typedModel(&#x27;NodeCluster&#x27;, NodeClusterSchema, undefined, undefined, {/*** @description* An aggregate function which returns only nodeClusters and real nodes if either the nodeClusters or the nodes are public or the owner is requesting it.* @param userId the userId who is making the request* @param id of a specific nodeCluster* @return if id given returns a nodeCluster or undefined, if not given returns an array of nodeClusters*/findAccessible: async function &lt;IT extends string | undefined &#x3D; undefined&gt;({userId,id}: { id?: IT, userId?: string }):Promise&lt;IT extends string ? (ExtractProps&lt;typeof NodeClusterSchema&gt; | undefined) : ExtractProps&lt;typeof NodeClusterSchema&gt;[]&gt; {const nodeClusters &#x3D; await NodeCluster.aggregate([{$match: {...(id !&#x3D; null ? {_id: Types.ObjectId(id)} : {}),$or: [{user_id: Types.ObjectId(userId)}, {public: true}]}},{$lookup: {from: &#x27;nodes&#x27;, localField: &#x27;nodes&#x27;, foreignField: &#x27;_id&#x27;, as: &#x27;nodes&#x27;}},{$project: {nodes: {$filter: {input: &quot;$nodes&quot;,as: &quot;node&quot;,cond: {$or: [{$eq: [&quot;$$node.user_id&quot;, Types.ObjectId(userId)]},{$eq: [&quot;$$node.public&quot;, true]}]}}},name: true,public: true,user_id: true}}]);return id !&#x3D; null ? nodeClusters[0] : nodeClusters;}})</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/GTLSensorNetwork/SensorAPI/blob/9af49fa/src/Entities/NodeCluster.ts#L13">Users/gagandeepsingh/Documents/fontys/semester7/sofa/SensorAPI/src/Entities/NodeCluster.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
+					<a name="nodeclusterschema" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Node<wbr>Cluster<wbr>Schema</h3>
+					<div class="tsd-signature tsd-kind-icon">Node<wbr>Cluster<wbr>Schema<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Schema</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>definition<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = createSchema({name: Type.string({ required: true, unique: true }),nodes: Type.array({required: true, default: []}).of(Type.ref(Type.objectId()).to(&#x27;Node&#x27;, NodeSchema)),user_id: Type.ref(Type.objectId({required: true})).to(&#x27;User&#x27;, UserSchema),public: Type.boolean({required: true, default: true})})</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/GTLSensorNetwork/SensorAPI/blob/9af49fa/src/Entities/NodeCluster.ts#L7">Users/gagandeepsingh/Documents/fontys/semester7/sofa/SensorAPI/src/Entities/NodeCluster.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="_entities_nodecluster_.html">&quot;<wbr>Entities/<wbr>Node<wbr>Cluster&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="_entities_nodecluster_.html#nodecluster" class="tsd-kind-icon">Node<wbr>Cluster</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="_entities_nodecluster_.html#nodeclusterschema" class="tsd-kind-icon">Node<wbr>Cluster<wbr>Schema</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

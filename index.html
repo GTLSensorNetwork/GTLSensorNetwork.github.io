@@ -1,0 +1,307 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>sensorapi</title>
+	<meta name="description" content="Documentation for sensorapi">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">sensorapi</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>sensorapi</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#sensorapi" id="sensorapi" style="color: inherit; text-decoration: none;">
+					<h1>SensorAPI</h1>
+				</a>
+				<p> It is all about the small things in life</p>
+				<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+					<h2>Getting Started</h2>
+				</a>
+				<a href="#all-the-necessary-dependencies-and-tools-to-install" id="all-the-necessary-dependencies-and-tools-to-install" style="color: inherit; text-decoration: none;">
+					<h3>All the necessary dependencies and tools to install</h3>
+				</a>
+				<a href="#" id="" style="color: inherit; text-decoration: none;">
+					<h1></h1>
+				</a>
+				<p>For the Backend part you have to install <a href="https://docs.docker.com/get-docker/">docker</a>, <a href="https://www.npmjs.com/get-npm">node</a>.
+				Use the package manager <a href="https://www.npmjs.com/get-npm">npm</a> to install all the important dependencies.</p>
+				<pre><code class="language-bash"> npm install | npm i</code></pre>
+				<a href="#environment-file" id="environment-file" style="color: inherit; text-decoration: none;">
+					<h3>Environment File</h3>
+				</a>
+				<a href="#-1" id="-1" style="color: inherit; text-decoration: none;">
+					<h1></h1>
+				</a>
+				<p>It is very important to create an .env file with the following environment variables.</p>
+				<pre><code class="language-.env">MASTER=true
+APP_ID=&#39;&#39;
+APP_ACCESS_KEY=&#39;&#39;
+FAKE_TTN_CONNECTION=false
+DEBUG=true</code></pre>
+				<p>The meaning of all these variables are written in the Dossier.</p>
+				<a href="#start-the-backend" id="start-the-backend" style="color: inherit; text-decoration: none;">
+					<h3>Start the Backend</h3>
+				</a>
+				<a href="#-2" id="-2" style="color: inherit; text-decoration: none;">
+					<h1></h1>
+				</a>
+				<p>To start and stop the backend these following commands can be used</p>
+				<pre><code class="language-docker">docker-compose up
+<span class="hljs-comment"># starts all docker containers at the same time</span>
+docker-compose down 
+<span class="hljs-comment"># stops all the docker container at the same time</span></code></pre>
+				<a href="#tests" id="tests" style="color: inherit; text-decoration: none;">
+					<h3>Tests</h3>
+				</a>
+				<a href="#-3" id="-3" style="color: inherit; text-decoration: none;">
+					<h1></h1>
+				</a>
+				<p>To start the tests you have to stop the running containers with this command. </p>
+				<pre><code class="language-bash">docker-compose -f docker-compose.yml -f docker-compose.test.yml down</code></pre>
+				<p>After that you can start the test with: </p>
+				<pre><code class="language-bash">npm <span class="hljs-built_in">test</span></code></pre>
+				<a href="#endpoints-and-channels" id="endpoints-and-channels" style="color: inherit; text-decoration: none;">
+					<h3>Endpoints and Channels</h3>
+				</a>
+				<a href="#-4" id="-4" style="color: inherit; text-decoration: none;">
+					<h1></h1>
+				</a>
+				<p>Here you can see all the Enpoints and Channels
+				of the Backend</p>
+				<p>Endpoints: </p>
+				<pre><code>Authentication
+   - login, <span class="hljs-keyword">params</span>: ({email:<span class="hljs-keyword">string</span>, password:<span class="hljs-keyword">string</span>})        
+   - logout, <span class="hljs-keyword">params</span>: (undefined)                                       
+   - changePassword, <span class="hljs-keyword">params</span> ({currentPassword, newPassword})   
+   - resetPassword, <span class="hljs-keyword">params</span> ({email: <span class="hljs-keyword">string</span>})                      </code></pre>
+				<pre><code>NodeClusters
+   - getNodeClusters, <span class="hljs-attr">params:</span> (undefined) 
+   - getNodeClusterById, <span class="hljs-attr">params:</span> (<span class="hljs-attr">nodeClusterId:</span> string)
+   - createNodeCluster, <span class="hljs-attr">params:</span> (<span class="hljs-attr">name:</span> string) 
+   - removeNodeClusterById, <span class="hljs-attr">params:</span> (<span class="hljs-attr">id:</span> ObjectId) 
+   - addNodeToNodeCluster, <span class="hljs-attr">params:</span> ({<span class="hljs-attr">nodeId:</span> ObjectId, <span class="hljs-attr">nodeClusterId:</span> ObjectId}) 
+   - removeNodeFromNodeCluster, <span class="hljs-attr">params:</span> ({<span class="hljs-attr">nodeId:</span> ObjectId <span class="hljs-attr">nodeClusterId:</span> ObjectId}) 
+   - updateNodeClusterVisibility, <span class="hljs-attr">params:</span> ({<span class="hljs-attr">public:</span> <span class="hljs-keyword">boolean</span>, <span class="hljs-attr">nodeClusterId:</span> ObjectId}) </code></pre>
+				<pre><code><span class="hljs-selector-tag">Nodes</span>
+   <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">requestNodeOwnership</span>, <span class="hljs-selector-tag">params</span>: ({<span class="hljs-attribute">devId</span>:string, serialnumber: string})
+   <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">updateNodeVisibility</span>, <span class="hljs-selector-tag">params</span>: ({<span class="hljs-attribute">public</span>: boolean, nodeId: ObjectId})
+   <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">removeNodeOwnership</span>, <span class="hljs-selector-tag">params</span>: ({<span class="hljs-attribute">devId</span>:string, serialnumber: string})</code></pre>
+				<pre><code><span class="hljs-selector-tag">Measurement</span>
+   <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">getLatestHighestMeasurement</span>, <span class="hljs-selector-tag">params</span>: ({<span class="hljs-attribute">nodeClusterId</span>: ObjectId, expiredMeasurementsMinutes: number = <span class="hljs-number">20</span>})
+   <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">getMeasurementIntervalResults</span>, <span class="hljs-selector-tag">params</span>: ({<span class="hljs-attribute">nodeClusterId</span>: ObjectId, startTimestamp: number, endTimestamp: number, resultType: MeasurementIntervalResultType })
+   <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">getMeasurementsOfNodeCluster</span>, <span class="hljs-selector-tag">params</span>: ({<span class="hljs-attribute">nodeClusterId</span>: ObjectId, timeDeltaMin:number = <span class="hljs-number">60</span>})</code></pre>
+				<pre><code>AccountRequest
+   - requestAccount, <span class="hljs-attr">params:</span> ({<span class="hljs-attr">email:</span> string, <span class="hljs-attr">fullname:</span> string, <span class="hljs-attr">message:</span> string})
+   - getAccountRequests, <span class="hljs-attr">params:</span> (undefined)
+   - replyToAccountRequest, <span class="hljs-attr">params:</span> ({<span class="hljs-attr">accountRequestId:</span> ObjectId, <span class="hljs-attr">accept:</span><span class="hljs-keyword">boolean</span>})</code></pre>
+				<p>Channels: All of these have two channels, one for Owner and one for Visitor </p>
+				<pre><code><span class="hljs-attribute">Measurement</span>
+   - MeasurementIntervalResults
+    - socket.subscribe(<span class="hljs-string">&quot;MeasurementIntervalResults-<span class="hljs-variable">${Owner | Visitor}</span>-<span class="hljs-variable">${NodeClusterId}</span>-<span class="hljs-variable">${Typeof MeasurementIntervalResultType (AVG | MIN | MAX)}</span>&quot;</span>)
+   - LatestHighestMeasurement
+    - socket.subscribe(<span class="hljs-string">&quot;LatestHighestMeasurement-<span class="hljs-variable">${Owner | Visitor}</span>-<span class="hljs-variable">${NodeClusterId}</span>&quot;</span>)
+   - GetMeasurementsOfNodeCluster
+    - socket.subscribe(<span class="hljs-string">&quot;GetMeasurementsOfNodeCluster-<span class="hljs-variable">${Owner | Visitor}</span>-<span class="hljs-variable">${NodeClusterId}</span>&quot;</span>)</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_entities_accountrequest_.html">&quot;<wbr>Entities/<wbr>Account<wbr>Request&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_entities_measurement_.html">&quot;<wbr>Entities/<wbr>Measurement&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_entities_node_.html">&quot;<wbr>Entities/<wbr>Node&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_entities_nodecluster_.html">&quot;<wbr>Entities/<wbr>Node<wbr>Cluster&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_entities_user_.html">&quot;<wbr>Entities/<wbr>User&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_entities_usertype_.html">&quot;<wbr>Entities/<wbr>User<wbr>Type&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_http_api_export_.html">&quot;<wbr>Http/API/<wbr>Export&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_http_index_.html">&quot;<wbr>Http/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_services_database_.html">&quot;<wbr>Services/<wbr>Database&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_services_mailer_.html">&quot;<wbr>Services/<wbr>Mailer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_services_ttn_.html">&quot;<wbr>Services/TTN&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_crypto_.html">&quot;<wbr>Utils/<wbr>Crypto&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_csv_.html">&quot;<wbr>Utils/<wbr>Csv&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_endpoints_.html">&quot;<wbr>Utils/<wbr>Endpoints&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_enum_.html">&quot;<wbr>Utils/<wbr>Enum&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_measurements_calculateintervalresults_.html">&quot;<wbr>Utils/<wbr>Measurements/<wbr>Calculate<wbr>Interval<wbr>Results&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_measurements_currenthighestvalues_.html">&quot;<wbr>Utils/<wbr>Measurements/<wbr>Current<wbr>Highest<wbr>Values&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_random_.html">&quot;<wbr>Utils/<wbr>Random&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_sctypes_.html">&quot;<wbr>Utils/<wbr>ScTypes&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_ttn_fakettnconnection_.html">&quot;<wbr>Utils/TTN/<wbr>FakeTTNConnection&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_ttn_fakettnmsgcreator_.html">&quot;<wbr>Utils/TTN/<wbr>FakeTTNMsg<wbr>Creator&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_ttn_ttnclient_.html">&quot;<wbr>Utils/TTN/TTNClient&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_ttn_ttnclientoptions_.html">&quot;<wbr>Utils/TTN/TTNClient<wbr>Options&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_ttn_uplinkmsg_.html">&quot;<wbr>Utils/TTN/<wbr>Uplink<wbr>Msg&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_utils_timestamp_.html">&quot;<wbr>Utils/<wbr>Timestamp&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_ws_api_accountrequest_.html">&quot;<wbr>Ws/API/<wbr>Account<wbr>Request&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_ws_api_authentication_.html">&quot;<wbr>Ws/API/<wbr>Authentication&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_ws_api_measurement_.html">&quot;<wbr>Ws/API/<wbr>Measurement&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_ws_api_node_.html">&quot;<wbr>Ws/API/<wbr>Node&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_ws_api_nodecluster_.html">&quot;<wbr>Ws/API/<wbr>Node<wbr>Cluster&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_ws_wsserverready_.html">&quot;<wbr>Ws/<wbr>WsServer<wbr>Ready&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_ws_index_.html">&quot;<wbr>Ws/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_index_.html">&quot;index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_options_.html">&quot;options&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
